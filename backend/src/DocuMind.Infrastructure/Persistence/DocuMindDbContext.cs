@@ -1,9 +1,11 @@
 using DocuMind.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DocuMind.Infrastructure.Persistence;
 
-public class DocuMindDbContext : DbContext
+public class DocuMindDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
 {
     public DocuMindDbContext(DbContextOptions<DocuMindDbContext> options) : base(options)
     {

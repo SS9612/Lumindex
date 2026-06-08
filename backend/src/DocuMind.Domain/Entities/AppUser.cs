@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace DocuMind.Domain.Entities;
 
-public sealed class AppUser
+/// <summary>
+/// Application user backed by ASP.NET Core Identity. Uses a <see cref="Guid"/> primary key so
+/// that owned resources (documents, conversations) can reference it via their <c>OwnerId</c>.
+/// </summary>
+public sealed class AppUser : IdentityUser<Guid>
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Email { get; set; } = default!;
     public string DisplayName { get; set; } = default!;
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
 }

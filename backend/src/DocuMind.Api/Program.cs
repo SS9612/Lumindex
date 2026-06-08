@@ -1,6 +1,8 @@
 using DocuMind.Api.Extensions;
 using DocuMind.Application;
 using DocuMind.Infrastructure;
+using DocuMind.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,13 @@ builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<DocuMindDbContext>();
+    await db.Database.EnsureCreatedAsync();
+}
+
 app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())
@@ -42,6 +51,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapDocuMindHealthChecks();
+
+app.MapGet("/", () => Results.Ok(new
+{
+    name = "DocuMind API",
+    status = "ok",
+    environment = app.Environment.EnvironmentName,
+    docs = "/openapi/v1.json",
+    health = new { live = "/healthz", ready = "/readyz" },
+}))
+.ExcludeFromDescription();
 
 app.Run();
 

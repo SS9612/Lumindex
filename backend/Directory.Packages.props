@@ -7,6 +7,7 @@
   <ItemGroup Label="ASP.NET Core / EF Core (pinned to .NET 9 LTS line)">
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.16" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.16" />
+    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="9.0.16" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.16" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.16" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.16" />
@@ -18,6 +19,7 @@
 
   <ItemGroup Label="Application building blocks">
     <PackageVersion Include="MediatR" Version="14.1.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
     <PackageVersion Include="FluentValidation" Version="12.1.1" />
     <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.1" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
