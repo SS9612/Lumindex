@@ -1,0 +1,47 @@
+# ---------- .NET ----------
+bin/
+obj/
+out/
+publish/
+artifacts/
+TestResults/
+coverage/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+.vs/
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.tmp
+*.log
+
+# ---------- Node / Vite ----------
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# ---------- Env / secrets ----------
+.env
+.env.*
+!.env.example
+**/secrets.json
+**/appsettings.Local.json
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Local SQLite databases ----------
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# ---------- Docs ----------
+README.md

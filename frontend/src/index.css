@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-background: oklch(99% 0 0);
+  --color-foreground: oklch(20% 0.02 270);
+  --color-muted: oklch(95% 0.005 270);
+  --color-muted-foreground: oklch(45% 0.02 270);
+  --color-border: oklch(90% 0.01 270);
+  --color-input: oklch(90% 0.01 270);
+  --color-ring: oklch(60% 0.18 285);
+  --color-primary: oklch(55% 0.2 285);
+  --color-primary-foreground: oklch(98% 0 0);
+  --color-secondary: oklch(95% 0.005 270);
+  --color-secondary-foreground: oklch(25% 0.02 270);
+  --color-accent: oklch(95% 0.005 270);
+  --color-accent-foreground: oklch(25% 0.02 270);
+  --color-destructive: oklch(55% 0.22 25);
+  --color-destructive-foreground: oklch(98% 0 0);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(20% 0.02 270);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(20% 0.02 270);
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: oklch(15% 0.02 270);
+      --color-foreground: oklch(96% 0 0);
+      --color-muted: oklch(22% 0.02 270);
+      --color-muted-foreground: oklch(70% 0.02 270);
+      --color-border: oklch(28% 0.02 270);
+      --color-input: oklch(28% 0.02 270);
+      --color-card: oklch(18% 0.02 270);
+      --color-card-foreground: oklch(96% 0 0);
+      --color-popover: oklch(18% 0.02 270);
+      --color-popover-foreground: oklch(96% 0 0);
+      --color-secondary: oklch(25% 0.02 270);
+      --color-secondary-foreground: oklch(96% 0 0);
+      --color-accent: oklch(25% 0.02 270);
+      --color-accent-foreground: oklch(96% 0 0);
+    }
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+}
