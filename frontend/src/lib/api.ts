@@ -31,16 +31,21 @@ interface ApiRequestOptions extends Omit<RequestInit, 'body'> {
   auth?: boolean
   /** Object serialized to a JSON request body. */
   json?: unknown
+  /** Multipart body. The browser sets the Content-Type (with boundary) automatically. */
+  formData?: FormData
 }
 
 const API_BASE = '/api'
 
 export async function apiFetch<T>(path: string, options: ApiRequestOptions = {}): Promise<T> {
-  const { auth = true, json, headers, ...rest } = options
+  const { auth = true, json, formData, headers, ...rest } = options
 
   const finalHeaders = new Headers(headers)
   let body: BodyInit | undefined
-  if (json !== undefined) {
+  if (formData !== undefined) {
+    // Let the browser set multipart/form-data with the correct boundary.
+    body = formData
+  } else if (json !== undefined) {
     finalHeaders.set('Content-Type', 'application/json')
     body = JSON.stringify(json)
   }

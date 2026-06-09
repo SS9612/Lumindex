@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<DocuMindDbContext>();
-    await db.Database.EnsureCreatedAsync();
+    await db.Database.MigrateAsync();
 }
 
 app.UseSerilogRequestLogging();
@@ -40,7 +40,14 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+// Skip HTTPS redirection in Development: the Vite dev proxy talks to the HTTP endpoint, and a
+// 307 redirect to the HTTPS port causes the browser to drop the Authorization header on the
+// resulting cross-origin request. In production the platform terminates TLS in front of the app.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseExceptionHandler();
 app.UseStatusCodePages();
 

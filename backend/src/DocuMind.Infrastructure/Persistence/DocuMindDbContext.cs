@@ -1,3 +1,4 @@
+using DocuMind.Application.Common.Persistence;
 using DocuMind.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DocuMind.Infrastructure.Persistence;
 
-public class DocuMindDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
+public class DocuMindDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>, IUnitOfWork
 {
     public DocuMindDbContext(DbContextOptions<DocuMindDbContext> options) : base(options)
     {
