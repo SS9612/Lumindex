@@ -32,7 +32,7 @@ export function AppLayout() {
       <header className="border-b">
         <div className="container mx-auto flex h-14 items-center justify-between px-6">
           <Link to="/" className="text-sm font-semibold tracking-tight">
-            DocuMind
+            Lumindex
           </Link>
 
           <div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export function AppLayout() {
 
       <footer className="border-t">
         <div className="container mx-auto px-6 py-4 text-xs text-muted-foreground">
-          DocuMind portfolio project — built with .NET 9, Azure OpenAI, and React.
+          Lumindex portfolio project — built with .NET 9, Azure OpenAI, and React.
         </div>
       </footer>
     </div>

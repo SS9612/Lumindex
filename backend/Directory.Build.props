@@ -4,7 +4,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
-    <Company>DocuMind</Company>
-    <Authors>DocuMind</Authors>
+    <Company>Lumindex</Company>
+    <Authors>Lumindex</Authors>
   </PropertyGroup>
 </Project>

@@ -33,7 +33,7 @@ export const useAuthStore = create<AuthState>()(
       clear: () => set({ token: null, user: null, expiresAt: null }),
     }),
     {
-      name: 'documind.auth',
+      name: 'lumindex.auth',
       partialize: (state) => ({
         token: state.token,
         user: state.user,

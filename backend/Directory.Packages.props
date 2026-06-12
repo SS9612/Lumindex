@@ -28,6 +28,7 @@
   <ItemGroup Label="Background jobs">
     <PackageVersion Include="Hangfire.AspNetCore" Version="1.8.21" />
     <PackageVersion Include="Hangfire.Core" Version="1.8.21" />
+    <PackageVersion Include="Hangfire.InMemory" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Logging / health checks">

@@ -11,7 +11,7 @@ export function HomePage() {
           RAG over your own documents
         </span>
         <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-          DocuMind
+          Lumindex
         </h1>
         <p className="max-w-2xl text-balance text-muted-foreground">
           Upload your documents, ask questions in natural language, get answers grounded in your
